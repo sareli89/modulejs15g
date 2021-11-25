@@ -7,7 +7,7 @@
     si a == b multiplicar ambos numeros
     Imprimir el resultado en consola
 */ 
-
+/*
 const firstNumber = parseInt(prompt('Ingresa tu primer numero: '))
 const secondNumber = parseInt(prompt('Ingresa tu segundo numero: '))
 
@@ -22,7 +22,7 @@ if(isNaN(firstNumber) === false && isNaN(secondNumber)=== false) {
 } else {
     console.error('Algunos de sus datos no son numeros.')
 }
-
+*/
 // for(inicializador; condicionadorDeParada; comoVaAIncrementar){
 //    console.log()
 // }
