@@ -22,7 +22,7 @@ if (userString.length > 0) {
         if (letter !== ' '){
             if(
                 letter === 'a' ||
-                letter === 'á' ||
+                letter === 'á' ||   áéíóúü
                 letter === 'e' ||
                 letter === 'é' ||
                 letter === 'i' ||

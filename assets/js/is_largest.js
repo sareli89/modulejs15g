@@ -7,6 +7,8 @@ Imprimir en consola el mayor
 Realizar un diagrama (si es necesario)
 */
 
+
+
 let number_one = parseInt(prompt('Escriba su primer numero:'))
 let number_two = parseInt(prompt('Escribasu segundo numero:'))
 let number_three = parseInt(prompt('Escriba su tercer numero:'))
@@ -24,3 +26,4 @@ if (!isNaN(number_one && number_two &&number_three)) {
 }else {
     console.error("Alguno de los datos ingresados no son numeros")
 }
+
