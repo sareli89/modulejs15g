@@ -88,7 +88,7 @@ for( i =1; i <= 10; i++){
 
 // let user_Number = parseInt(prompt('Escribe un numero entre el 1 y el 100'))
 let total = 0
-if (isNan(user_Number) != true && user_Number > 0 && < 101) {
+if (isNan(user_Number) != true && user_Number > 0 && user_Number < 101) {
     for (let i = 1; i <= user_Number; i++) {
         total += i
     } 
