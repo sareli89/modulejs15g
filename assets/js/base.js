@@ -4,7 +4,7 @@
 //function suma() {
 //    console.log('Llamando a una funcion')
 //}
-
+/*
 console.log('funciones')
 
 //funcion sin parametros
@@ -56,7 +56,7 @@ function sumNumbers(a, b=5) {
     return suma
 }
 let resultado = sumNumbers(10)
- */
+ 
 
 
 
@@ -137,3 +137,102 @@ function sumMultiples() {
     return result
 }
 console.log(`La suma de los multiplos de 3 y 5 entre 1 y 100 es ${sumMultiples()}`)
+*/
+
+// CLASE 6 - Arrow Functions
+
+/*
+// declaration
+const nombreFunction = (param1, ... , paramN) => {
+    // sentencias
+    //
+    // ...
+    return
+}
+// invoke
+nombreFunction(param1, ... , paramN)
+
+//clase
+// Función 1:
+// valor por defecto 10
+// Imprimir en consola las tablas de multiplicar del 1 al 10 
+/** 
+const tables10 = (a) => {
+    for (i = a; i <= a; i++) {
+        for (b =1; b <= 10; b++) {
+            return(`${a} x ${b} = ${a * b}`)
+        }
+    }
+}
+*/    
+
+
+
+
+// Función 2:
+// valor por defecto 10
+// Imprimir en consola la suma de 1 a N, siendo N un numero entre 1 y 100
+/*
+const adding10 = (number = 10) => {
+    let counter = 1
+    let sumA = 0
+
+    if (!isNaN(number) && number > 0 && number <= 100) {
+        while (counter <= number) {
+            sumA += counter
+            counter += 1
+        }
+    } return(sumA)
+}
+*/
+
+
+/** 
+// Función 3:
+// valor por defecto "1234"
+// Imprimir en consola la suma total de todos los digitos de una cantidad 
+// p.ej. "1234" -> 10
+const totalSum = (value = 1234) => {
+    let lastValue = value.toString()
+    let newValue = 0
+
+    for(i = 0; i < lastValue.length; i++){
+        newValue += parseInt(lastValue[i])
+    }
+    return newValue
+}
+*/
+
+
+
+/** 
+// Función 4:
+// valor por defecto 3 y 5, sino el que ponga el usuario 
+// Imprimir en consola la suma de los múltiplos de 3 y 5 contenidos entre el 1 y 100
+// -> 233168
+const multiplo = (a = 3, b = 5) => {
+    let mult = 0
+    
+    for (i =1; i<= 100; i++) {
+        if (1 % a === 0 || i % b === 0) {
+            mult += +i
+        }
+    }
+    return(`La suma de los multiplo es = ${mult}`)
+}
+*/
+*/
+
+// Ejemplos
+
+const sumaOk = (a) => {
+    return a * 2
+}
+
+const sumaOk = a => {
+    return a * 2
+}
+
+const suma = ( a, b= 5) => a + b
+
+suma(3,5)
