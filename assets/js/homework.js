@@ -1,78 +1,82 @@
+// Función 1:
+// valor por defecto 10
+// Imprimir en consola las tablas de multiplicar del 1 al 10 
 /** 
- * Ejercicio 1
- * imprimir en consola todos los numeros pares entre 1 y 100
- * -> 2
- * -> 4
- * -> 100
-i = 2
-while (i <= 100) {
-    console.log(i)
-    i += 2
+function timesX(a = 0, b = 10) {
+    if (a == 0){
+        for (let b = 1; b <= 10; b++) {
+            for (let j = 1; j <= 10; j++) {
+                console.log(`${b}  ${j} es = ${b * j}`);
+            }
+        }
+    } else {
+        for (let i = 1; i <= a; i++) {
+            for (let j = 1; j <= 10; j++) {
+                console.log(`${i} x ${j} es = ${i* j}`);
+            }
+        }
+    }
+}
+*/    
+
+// Función 2:
+// valor por defecto 10
+// Imprimir en consola la suma de 1 a N, siendo N un numero entre 1 y 100
+/*
+
+function sum(num = 0, num2 = 10){
+    let result = 0
+
+    if (num == 0){
+        for(let i = 1; i <= num2; i++) {
+            result += i
+        }
+    } else {
+        for (let j = 1; j <= num; j++) {
+            result += j
+        }
+    }
+    return result
 }
 
-for (i=0; i <= 100; i+=2) {    
-    console.log(i)
-    }
+let number = parseInt(prompt('Dame un numero del 1 al 100'))
+if (!isNaN(number) && number > 0 && number <101) {
+    console.log(`El resultado de la suma 1 a ${number} es igual a ${sum(number)}`)
+} else {
+    console.error('Debes Introducir un valor entre 1 y 100')
+}
 */
 
 
+/** 
+// Función 3:
+// valor por defecto "1234"
+// Imprimir en consola la suma total de todos los digitos de una cantidad 
+// p.ej. "1234" -> 10
 
-/**
- * Ejercicio 2
- * Pedir al usuario un string
- * Invertir el orden e imprimir en consola
- * Entrada: "reverse"
- * Salida: -> esrever
- * hint: https://www.w3schools.com/jsref/jsref_length_string.asp
- * 
- let firstString = prompt('Escriba una palabra u oracion')
-let reverseString = ""
+function sumA(number = 0, number1 = '1234'){
+    let wordToNumber = prompt('Favor de poner un numero')
+    let totalSumA = 0
 
-for (i = firstString.length - 1; i >= 0; i--){
-    reverseString += firstString[i]
-} 
-
-console.log(reverseString)
- */
-
-
-
-
-
-/**
- * Ejercicio 3 
- * Declarar un string de al menos 2 palabras
- * Imprimir en consola el string separado por guiones en cada palabra
- * "hola koders"
- * "hola-koders"
- * hint: https://www.w3schools.com/jsref/jsref_replace.asp
-  
-let dashedWord = prompt('Ingrese una oracion de al menos 2 palabras').trim().replace(/ /g,"-")
-console.log(dashedWord)
- */
-
-
-
-/**
- * Ejercicio 4
- * Declarar un string con un correo electrónico
- * Enmascarar con "*" el bloque del usuario
- * "jorgec@kodemia.mx"
- * "*****@kodemia.mx"
- * 
- * hint: https://www.w3schools.com/jsref/jsref_slice_string.asp
- * hint: https://www.w3schools.com/jsref/jsref_indexof.asp
- * 
- * const word = prompt('Dame una oración').trim().toLowerCase()
-let wordCapitalize = ''
-// en una galaxia
-for(i = 0; i < word.length; i++){
-    if(word[i] == ' '){
-        wordCapitalize += ' ' + word[i + 1].toUpperCase()
-        i = i + 1
-    } else {
-        wordCapitalize = wordCapitalize + word[i]
-    }
+    if (number == 0) {
+        for (let k = 0;  k <= wordToNumber.length -1 ; k++) {
+            totalSumA += parseInt(wordToNumber[k])
+        } 
+    } else if ( wordToNumber == number1){
+        for(let l =0; l<= wordToNumber.length - 1; l++) {
+            totalSumA += parseInt(wordToNumber[l])
+        }
+    } return totalSumA()
 }
- */
+*/
 
+
+/** 
+// Función 4:
+// valor por defecto 3 y 5, sino el que ponga el usuario 
+// Imprimir en consola la suma de los múltiplos de 3 y 5 contenidos entre el 1 y 100
+// -> 233168
+
+*/
+
+// invertigar Arrow functions

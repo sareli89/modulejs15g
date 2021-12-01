@@ -1,80 +1,139 @@
 
-/*
-	Pedir al usuario una palabra
-	Devolver la palabra capitalizada
-	p.ej. 'galAxiA'
-	Ouput -> 'Galaxia'
+//console.log('funciones')
+//
+//function suma() {
+//    console.log('Llamando a una funcion')
+//}
 
-const wordUser = prompt('Dame una oración').trim().toLowerCase()
-var wordCap = wordUser.substring(0,1).toUpperCase() + wordUser.substring(1)
-console.log(wordCap)
+console.log('funciones')
+
+//funcion sin parametros
+function suma() {
+    console.log(2+2)
+}
+
+//Funcion con parametros
+function suma(a, b) {
+    console.log(a + b)
+}
+suma(10, 100)
+
+function toCelcius(fahrenheit) {
+    let celciusGrades = (5 / 9) * (fahrenheit - 32)
+    // retorno de la funcion
+    return celciusGrades
+}
+let celciusGradesReturned = toCelcius(100)
+console.log(celciusGradesReturned) 
+
+// funcion que pida el nombre al usuario
+// y lo imprima en consola
+
+function aName() {
+    let theName = prompt('Escribe tu nombre:')
+    console.log(theName)
+} 
 */
+/**
+ * Funcion que reciba una palabra
+ * y la retorne al revés
+ 
+ function reverse(firstString){
+    let reversedString = ""
+    for (let i = firstString.length - 1; i >= 0; i--){
+         reversedString += firstString[i] 
+    }
+    return reversedString
+ }
+
+let  nombreAlReves = reverse('hola que hace')
+console.log(nombreAlReves)
+
+// valores opcionales
+
+function sumNumbers(a, b=5) {
+    let suma = a + b
+    return suma
+}
+let resultado = sumNumbers(10)
+ */
 
 
-let word = prompt('Agregue la palabra que quiere transformar').trim().toLowerCase()
-alert(word[0].toUpperCase() + word.slice(1,word))
 
+// Función 1:
+// Imprimir en consola las tablas de multiplicar del 1 al 10 
 
-
-/*
-	Pedir al usuario una oración (permitir espacios)
-	Capitalizar cada una de las palabras de la oración
-	p.ej. 'En una galaxia muy muy lejana'
-	Ouput -> 'En Una Galaxia Muy Muy Lejana'
-*/
-
-const word = prompt('Dame una oración').trim().toLowerCase()
-let wordCapitalize = ''
-// en una galaxia
-for(i = 0; i < word.length; i++){
-    if(word[i] == ' '){
-        wordCapitalize += ' ' + word[i + 1].toUpperCase()
-        i = i + 1
-    } else {
-        wordCapitalize = wordCapitalize + word[i]
+function multipleTable() {
+    for (let i = 1; i <= 10; i++) {
+      for (let j = 1; j <= 10; j++) {
+        console.log(`El resultado de ${i} * ${j} es = ${i * j}`);
+        }
     }
 }
-// en Una Galaxia
-wordCapitalize = wordCapitalize.substring(0,1).toUpperCase() + wordCapitalize.substring(1)
-// En Una Galaxia
-console.log(wordCapitalize)
 
+// Función 2:
+// Imprimir en consola la suma de 1 a N, siendo N un numero entre 1 y 100
 
-let sentence = prompt("Por favor poner una palabra con espacios").trim().toLowerCase();
-let newSentence = "";
+function sum(num){
+    let result = 0
 
-for (i = 0; i <= sentence.length - 1; i++) {
-  if (sentence[i] == sentence[0] && i == 0 || sentence[i - 1] == " ") {
-    newSentence += sentence[i].toUpperCase();
-  } else {
-    newSentence += sentence[i];
-  }
-}
-console.log(newSentence);
-
-
-/*
-	Pedir al usuario cuantas materias tiene actualmente
-	Pedir al usuario la calificacion de cada una de esas N materias
-	Arrojar el promedio en un alert
-
-let totalSubjects = parseInt( prompt('Total de materias') )
-let total = 0, average = 0, counter = 1;
-
-while(counter <= totalSubjects){
-    total = total + parseInt(prompt(`Calificación de la materia ${counter}: `))
-    counter++
+    for(let i = 1; i <= num; i++){
+        result += i
+    }
+    return result
 }
 
-average = total / totalSubjects
-alert(`El promedio es: ${average}`)
-*/
-
-let subjects = parseInt(prompt("Favor de indicar cuantas materias tiene"));
-let totalFinal = 0,cal = 0;
-
-for (i = 1; i <= subjects; i++) {
-  cal = parseInt(prompt(`cuales es la calificaciones de la materia ${i}?`));
-  totalFinal += cal;
+let number = parseInt(prompt('Dame un numero del 1 al 100'))
+if (!isNan(number) && number > 0 && number <101) {
+    console.log(`El resultado de la suma 1 a ${number} es igual a ${sum(number)}`)
+} else {
+    console.error('Debes Introducir un valor entre 1 y 100')
 }
-console.log(`La calificacion final es de ${totalFinal / subjects}`);
+
+// Función 3:
+// Imprimir en consola si una oración es un palindromo (puede contener espacios)
+// anita lava la tina -> True
+
+function palindrome(aString) {
+    let wordWithoutSpace = ''
+    let wordReversed = ''
+    
+    if(aString != ''){
+        for(i = 0; i < aString.length; i++){
+            if(aString[i] !== ' '){
+                wordWithoutSpace = wordWithoutSpace +  aString[i]
+            }
+        }
+        for(j = wordWithoutSpace.length - 1; j >= 0 ; j--){
+            wordReversed = wordReversed + wordWithoutSpace[j].trim().toLowerCase()
+        } 
+        wordWithoutSpace === wordReversed ? true : false   
+    }
+}
+
+// Función 4:
+// Imprimir en consola la suma total de todos los digitos de una cantidad 
+// p.ej. "1234" -> 10
+
+function sumTotalOfNumbers() {
+    let wordtonumber = prompt('Favor de poner un numero')
+    let total = 0
+    for (let i = 0;  i <= wordtonumber.length -1 ; i++) {
+        total += parseInt(wordtonumber[i])
+    }
+    console.log(total)
+}
+
+// Función 5:
+// Imprimir en consola la suma de los múltiplos de 3 y 5 contenidos entre el 1 y 100
+// -> (233168)
+
+function sumMultiples() {
+    let result = 0
+    for (let i = 1; i <= 101; i++) {
+        i % 3 == 0? result += 1 :
+            i % 5 == 0 ? result += i :null
+    }
+    return result
+}
+console.log(`La suma de los multiplos de 3 y 5 entre 1 y 100 es ${sumMultiples()}`)
