@@ -221,11 +221,11 @@ const multiplo = (a = 3, b = 5) => {
     return(`La suma de los multiplo es = ${mult}`)
 }
 */
-*/
+
 
 // Ejemplos
 
-const sumaOk = (a) => {
+/* const sumaOk = (a) => {
     return a * 2
 }
 
@@ -235,4 +235,110 @@ const sumaOk = a => {
 
 const suma = ( a, b= 5) => a + b
 
-suma(3,5)
+suma(3,5) */
+
+// arr.forEach()
+
+// Ejercicio 1 .forEach()
+// Dado un array con solo números
+// obtener el  valor mas alto
+// input: [1,4,3,2,5]
+// output: -> [5]
+
+/* const mostBigger = (arr) => {
+	let biggest = arr[0]
+	arr.forEach( (value, index, array) => {
+		if(biggest < value){
+			biggest = value
+		}
+	})
+	return biggest
+}
+console.log( mostBigger( [1, 4, 10] ) ) 
+
+const smallerNumber = (arr) => {
+    let smaller = arr[0]
+
+    arr.forEach( (value) => {
+        if (smaller > value) {
+            smaller = value
+        }
+    })
+    return smaller
+}
+console.log( smallerNumber( [10,23,2,1,3,93]))*/
+
+
+// arr.map()
+
+/* const arrExample = [11,2,3,10,5]
+const resultado = arrExample.map( (val) => {
+	return val * 2
+})
+console.log(resultado) 
+
+let resulTado =
+[11,2,3,10,5].map( (val,index,arr) => {
+    return val *2
+})
+console.log(resulTado)*/
+
+
+/* // dado un array de numeros,
+// retornar un array con los numeros convertidos a string
+// Entrada : [11,2,3,10,5]
+// Salida : ['11','2','3','10','5']
+
+// let arrEx = [11, 2, 3, 10, 5]
+// let resultado = arrEx.map((val) => {
+//     return val.toString()
+// })
+
+const toString = (array_S) => array_S.map( (value) => value.toString())
+
+let result_1 = toString([1,2,3,4])
+
+console.log(toString([1,2,2,3,4])) 
+
+    })*/
+
+// .map()
+// función
+// Dado unn array como parametro 
+// capitalizar todos los elementos que sean strings
+// typeof variable
+// input: ['hOlA', 'mundo', 123]
+// output -> ['Hola','Mundo', 123]
+
+const capitalizeArr = (arr) => {
+    let arrCapitalized = []
+
+    arrCapitalized = arr.map( value => {
+        if (typeof value === 'string') {
+            return `${value.slice(0, 1).toUpperCase()}${value.slice(1).toLowerCase()}`
+        } else {
+            return value
+        }
+    })
+    return  arrCapitalized
+}
+
+let resultCap = capitalizeArr(['hOlA', 'mundo', 123])
+console.log(resultCap)
+
+// let stringToCap = 'hoLA'
+// let textCap = `${stringToCap.slice(0,1).toUpperCase()}${stringToCap.slice(1).toLowerCase()}`
+// console.log(textCap)
+
+
+// arr.filter()
+const arrayCities = ['ciudad', 'CDMX', 'Monterrey', 'Guadalajara']
+
+arrayCities.filter( (current_Val, index, arr) => {
+    // if(current_Val.slice(0,1) === 'c' || current_Val.slice(0,1) === 'C' ){
+    //     return current_Val
+    // }
+    if(current_Val.toLowerCase().slice(0,1) === 'c'){
+        return current_Val
+    }
+})
