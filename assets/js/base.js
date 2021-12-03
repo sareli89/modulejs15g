@@ -310,7 +310,7 @@ console.log(toString([1,2,2,3,4]))
 // input: ['hOlA', 'mundo', 123]
 // output -> ['Hola','Mundo', 123]
 
-const capitalizeArr = (arr) => {
+/* const capitalizeArr = (arr) => {
     let arrCapitalized = []
 
     arrCapitalized = arr.map( value => {
@@ -324,7 +324,7 @@ const capitalizeArr = (arr) => {
 }
 
 let resultCap = capitalizeArr(['hOlA', 'mundo', 123])
-console.log(resultCap)
+console.log(resultCap) */
 
 // let stringToCap = 'hoLA'
 // let textCap = `${stringToCap.slice(0,1).toUpperCase()}${stringToCap.slice(1).toLowerCase()}`
@@ -332,7 +332,7 @@ console.log(resultCap)
 
 
 // arr.filter()
-const arrayCities = ['ciudad', 'CDMX', 'Monterrey', 'Guadalajara']
+/* const arrayCities = ['ciudad', 'CDMX', 'Monterrey', 'Guadalajara']
 
 arrayCities.filter( (current_Val, index, arr) => {
     // if(current_Val.slice(0,1) === 'c' || current_Val.slice(0,1) === 'C' ){
@@ -341,6 +341,87 @@ arrayCities.filter( (current_Val, index, arr) => {
     if(current_Val.toLowerCase().slice(0,1) === 'c'){
         return current_Val
     }
-})
+}) */
+
+/**
+ * Tener una variable tipo Array donde guardar el resultado
+ * iterar el array con arr.map()
+ * - En cada iteracion 
+ * -- Obtener la primer letra del string y ponerla en mayuscula
+ * -- Obtener del segundo al último caracter del string y ponerla en minusculas
+ * -- formar un solo string con los 2
+ * -- retornar ese string
+ * 
+ * Retornar la variable con el array transformado
+ */
+// ['hOla','munDo']
+// -> ['Hola','Mundo']
+
+/* const capitalizeWithMap = (arr) => {
+    return arr.map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+}
+
+let resultado = capitalizeWithMap(['hOla','munDo'])
+console.log(resultado) */
+
+/* const capitalizeWithMap = (arr) => {
+ 
+    return arr.map( word => {
+        if (typeOf word === 'string') {
+            let captital_L = `${word.slice(0,1).toUppercase()}${word.slice(1).toLowerCase()}`
+            return captital_L
+        }else {
+            return word
+        }
+    })
+} */
 
 
+/* const capitalizeWithMap = (arr) => arr.map(val => val[0].toUpperCase() + val.slice(1).toLowerCase())
+
+let result = capitalizeWithMap(['hOla','munDo'])
+console.log(result) */
+
+
+/**
+ * 
+ * -> ['hola','mundo', 0, 5]
+ * -> ['hola','mundo']
+ * 1. funcion
+ * 2. filtrar solo los que son de typo string
+ * 
+ */
+
+const string_Filter = ['hola','mundo', 0, 5]
+
+/* let filtered = string_Filter.filter( arr => {
+    if ( typeof arr === 'string' ) {
+        return arr 
+    }
+}) */
+
+let filtered = string_Filter.filter( arr => typeof arr === 'string' )
+
+// arr.reduce
+
+let arr = [10,20,30]
+// let acumulador = 0
+
+// arr.forEach( element => {
+//     acumulador += element
+// })
+// console.log(acumulador)
+
+let suma = arr.reduce((acc, current_Val, index, array) => { //reduce ya incluye un acumulador -acc-
+    console.log(acc, current_Val)
+    return acc + current_Val
+}, 0 ) // este 0 esta inicializando al acumulador 
+console.log(suma)
+
+let arrStr = ['hola', 'mundo', 0]
+
+let concatStr = arrStr.reduce((acc, current_Val, index, array) => { //reduce ya incluye un acumulador -acc-
+    console.log(acc, current_Val)
+    return acc + current_Val
+}, 'Saludo: ' ) // este 0 esta inicializando al acumulador 
+console.log(concatStr)

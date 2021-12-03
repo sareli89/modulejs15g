@@ -39,3 +39,53 @@ let newArray3 = arr3.filter(filterExample)
 function filterExample(more){
     return more >= 25
 }
+
+/**
+ * Tener una variable tipo Array donde guardar el resultado
+ * iterar el array con arr.map()
+ * - En cada iteracion 
+ * -- Obtener la primer letra del string y ponerla en mayuscula
+ * -- Obtener del segundo al último caracter del string y ponerla en minusculas
+ * -- formar un solo string con los 2
+ * -- retornar ese string
+ * 
+ * Retornar la variable con el array transformado
+ */
+// ['hOla','munDo']
+// -> ['Hola','Mundo']
+
+const capitalizeWithMap = (arr) => {
+    return arr.map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+}
+
+let resultado = capitalizeWithMap(['hOla','munDo'])
+console.log(resultado)
+
+// arr.filter(function)
+
+/* Dado un array de numeros
+Filtrar los que son pares */
+
+let arrToFilter = [1,2,3,4,5,6,7]
+let arrFiltered = arrToFilter.filter( (numero) => {
+    if( numero % 2 === 0) {
+        return numero
+    }
+})
+
+
+// arr.reduce
+
+let arr = [10,20,30]
+// let acumulador = 0
+
+// arr.forEach( element => {
+//     acumulador += element
+// })
+// console.log(acumulador)
+
+let suma = arr.reduce((acc, current_Val, index, array) => { //reduce ya incluye un acumulador -acc-
+    console.log(acc, current_Val)
+    return acc + current_Val
+}, 0 ) // este 0 esta inicializando al acumulador 
+console.log(suma)
