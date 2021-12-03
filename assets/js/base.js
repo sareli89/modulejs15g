@@ -342,3 +342,5 @@ arrayCities.filter( (current_Val, index, arr) => {
         return current_Val
     }
 })
+
+

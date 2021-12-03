@@ -1,221 +1,92 @@
-/**
- * Escribir un arrow function que invierta una oracion
- * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
- */
+// 1. Generar una function
+// que reciba un array como parametro
+// y devuelva solo los items que son pares
+// p.ej. onlyEvenValues( [1, 2, 3, 4] )
+// -> [2, 4]
+// Aplicar el metodo .forEach()
+// hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
 
-const reverseString = string => string.split('').reverse().join('')  
-
-reverseString('hello world')
-
-
-/**
- * Escribir un arrow function que compruebe
- * si una oración es un palindromo
- * hint: https://ricardometring.com/javascript-replace-special-characters
- * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
- */
-
-const palindrome = (pal = 'Hola mundo así') => {
-    let normal = pal.normalize("NFD").replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/([^\w] + |\s+)/g, '')
-    let wr = normal.split('').reverse().join('')
-    return normal === wr ? true : false
-}
-
-/**
- * Escribir un arrow function que tome como parametro 2 arrays, 
- * y devuelva un numero con la suma total de esos 2 arrays.
- * arrayReduce( [1,2,3,4], [1,2]) 
- * -> 13
- * 
- * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
- * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
- * 
-*/
-
-const arrayReduce = (arrOne, arrTwo) => {
-    let newArr = arrOne.concat(arrTwo)
-    let arrAdd = 0
-
-    // funcion tradicional
-    // newArr.forEach =(function(item)){
-    //  arrAdd += item
-    //}
+const onlyEvenValues = (arrNumbers) => {
     
-    // arrow function 
-    newArr.forEach(item => {
-        arrAdd += item 
+    let new_Arr = []
 
-    // one line arrow functiion: newArr.forEach(value => arrAdd += value)
+    arrNumbers.forEach(item => {
+        if (item % 2 === 0) {
+            new_Arr.push(item)
+        }
     })
-    return arrAdd
+    return new_Arr
 }
 
-let resultado = arrayReduce( [1,2], [3])
-console.log(resultado)
-/**
- * Escribir una función que tome como parametro 2 arrays, y devuelva un array 
- * con los numeros repetidos en los 2 arrays
- * arrayReduce([1,2,3,4],[1,2,5]). 
- * -> [1,2]
-*/
-// const =
-// let arrayReduce = [1,2,3,4] , [1,2,5]
 
-const array_Reduce = (arr_One, arr_Two) => {
-    let arr_Add = 0 
-    return arr_One.concat(arr_Two).forEach(item => arr_Add += item)
+// 2. function que reciba como parametro una array de strings
+// y devuelva la primer y ultima letra del string
+// de cada uno de los items del array 
+// -> firstAndLast (['hola', 'mundo'] )
+// -> ['ha', 'mo']
+// .forEach() o .map()
+
+/* // solucion forEach
+const firstAndLast = arrStrings => {
+    let arrayToFill = []
+
+    arrStrings.forEach( (item) => {
+        arrayToFill.push(item.slice(0,1) + item.slice(-1))
+    })
+    return arrayToFill
+}
+let answer = firstAndLast */
+
+const firstAndLast = arrStrings => {
+    let arrayToFill = []
+
+    // solucion map
+    arrayToFill = arrStrings.map( (palabra) =>{
+        let primera = palabra.slice(0,1)
+        let ultima = palabra.slice(palabra.length - 1)
+        return `${primera}${ultima}`        
+    })
+    return arrayToFill
 }
 
-// tarea por Mentor Jorge
+let answer = firstAndLast
 
 /**
- * Escribir un arrow function que invierta una oracion
- * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
- * hint: https://www.w3schools.com/jsref/jsref_join.asp
+ * 3. Funcion que reciba un array de numeros
+ * y devuelva el promedio
+ * -> getAverage( [10, 8, 9, 7] )
+ * -> 8.5
  */
 
-// large solution
-const reverseSentence = (sentence ) => {
-    let newSentence = ''
-    newSentence = sentence.split('').reverse().join('')
-    return newSentence
-}
-// middle solution
-// const reverseSentence = (sentence ) => {
-//     return sentence.split('').reverse().join('')
-// }
+const getAverage = (arr) => {
+    let arr_Add = 0
+    let total_Items = arr.length
 
-// one line solution
-// const reverseSentence = sentence => sentence.split('').reverse().join('')
-
-
-
-/**
- * Escribir un arrow function que compruebe
- * si una oración es un palindromo
- * hint: https://ricardometring.com/javascript-replace-special-characters
- * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
- */
-
-// large
-const isPalindrome = (sentence) => {
-    let sentenceNormalized = sentence.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    let sentenceWithoutSpaces = sentenceNormalized.replace(/\s/g,'')
-    let sentenceReversed = sentenceWithoutSpaces.split('').reverse().join('')
-    if(sentenceWithoutSpaces === sentenceReversed) {
-        return true
-    } else {
-        return false
-    }
-}
-// short
-// const isPalindrome = sentence => {
-//     let sentenceNormalized = sentence.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s/g,'')
-//     let sentenceReversed = sentenceNormalized.split('').reverse().join('')
-//     return sentenceNormalized === sentenceReversed ? true : false
-// }
-
-
-/**
- * Escribir un arrow function que tome como parametro 2 arrays, 
- * y devuelva un numero con la suma total de esos 2 arrays.
- * arrayReduce( [1,2,3,4], [1,2] ) 
- * -> 13
- * 
- * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
- * hint: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
- * 
-*/
-
-const arrayReduce = (arrOne, arrTwo) => {
-    let newArr = arrOne.concat(arrTwo)
-    let arrAdd = 0
-    
-    // funcion tradicional
-    // newArr.forEach( function (item) {
-    //     arrAdd += item
-    // })
-
-    // arrow function
-    newArr.forEach( value => {
-        arrAdd = arrAdd + value
+    arr.forEach( (item) => {
+        arr_Add += item
     })
-
-    // newArr.forEach( value => arrAdd += value )
-    return arrAdd
+    return (arr_Add / total_Items)
 }
 
 
-let resultado = arrayReduce( [1,2], [3] )
-console.log(resultado)
+//  4. funcion
+// dado un array de años, filtre los elementos
+// y devuelva un array con los años que son bisiesto
+// convertLeapYear( [1990, 2000, 2001, 2020] )
+// -> [2000,2020]
+// .forEach()
+// hint: https://docs.microsoft.com/es-es/office/troubleshoot/excel/determine-a-leap-year
 
+const convertLeapYear = arr => {
+    let years = []
 
+    arr.forEach( (element) => {
+        if(element % 4 === 0 && element % 100 === 0 && element % 400 ===0 || element % 4 === 0 && 200 != 0){
+            years.push(element)
+        }
+    })
+    return years
+}
 
-// middle
-// const arrayReduce = (arrOne, arrTwo) => {
-//     let arrAdd =  0
-//     arrOne.concat(arrTwo).forEach( item => arrAdd += item )
-//     return arrAdd
-// }
-
-// short
-// const arrayReduce = (arrOne, arrTwo) => {
-//     let arrAdd =  0
-//     return arrOne.concat(arrTwo).forEach( item => arrAdd += item )
-// }
-
-// one line solution
-// const arrayReduce = (arrOne, arrTwo) => arrOne.concat(arrTwo).reduce( (acc, cv) => acc += cv )
-
-
-/**
- * Escribir una función que tome como parametro 2 arrays, y devuelva un array 
- * con los numeros repetidos en los 2 arrays
- * arrayReduce([1,2,3,4],[1,2,5]). 
- * -> [1,2]
-*/
-
-// large
-// const getRepeatItems =  (arrOne, arrTwo) => {
-//     let concatArr = arrOne.concat(arrTwo)
-//     let arrRepeated = []
-//     concatArr.forEach((element, index) =>  {
-//         // console.log( concatArr.indexOf(element), index)
-//         if( concatArr.indexOf(element) !== index ) {
-//             arrRepeated.push(element)
-//         }
-//     })
-//     return arrRepeated
-// }
-
-// middle
-// const getRepeatItems =  (arrOne, arrTwo) => {
-//     let arrRepeated = []
-//     arrOne.concat(arrTwo).forEach((element, index) =>  {
-//         concatArr.indexOf(element) !== index ? arrRepeated.push(element) : ''
-//     })
-//     return arrRepeated
-// }
-
-
-// Large filter
-// const getRepeatItems =  (arrOne, arrTwo) => {
-//     let arrRepeated = []
-//     arrRepeated = arrOne.concat(arrTwo).filter((element, index, arr) =>  {
-//         if( arr.indexOf(element) !== index ) {
-//             return element
-//         }
-//     })
-
-//     return arrRepeated
-// }
-
-// short filter
-// const getRepeatItems = (arrOne, arrTwo) => {
-//     return arrOne.concat(arrTwo).filter((element, index,arr) =>  {
-//         return arr.indexOf(element) !== index ? element : ''
-//     })
-// }
-
-// one line -- not recomended
-const getRepeatItems = (arrOne, arrTwo) => arrOne.concat(arrTwo).filter((item, index,arr) => arr.indexOf(item) !== index ? item : '')
+let result1 = convertLeapYear([1990, 2000, 2002, 2020])
+console.log(result1)
