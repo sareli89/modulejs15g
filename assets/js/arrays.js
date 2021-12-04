@@ -89,3 +89,54 @@ let suma = arr.reduce((acc, current_Val, index, array) => { //reduce ya incluye 
     return acc + current_Val
 }, 0 ) // este 0 esta inicializando al acumulador 
 console.log(suma)
+
+
+
+let suma = arr.reduce((acc, cv, index, arr)=> {
+	// console.log(acc, cv)
+	return acc + cv
+}, 0 )
+
+let arrStr = ['hola', 'mundo']
+let concatStr = arrStr.reduce((acc, cv, index, arr)=> {
+	console.log(acc, cv, index, arr )
+	return acc + cv
+
+}, 'saludo: ')
+
+console.log(concatStr)
+
+
+// [].reduce( (acc,value, index, array) => {}) -> ''
+
+const fullname = ['jorge luis', 'camarillo', 'cristobal']
+// ->'jorge luis camarillo cristobal'
+let fullNameStr = ''
+fullNameStr = fullname.reduce( ( acc, cv) => {
+    return `${acc} ${cv}`
+})
+console.log(fullNameStr)
+
+// reduccion del ejercicio anterior
+const getFullName = () => {
+    return fullname.reduce( ( acc, cv) => `${acc} ${cv}` )
+}
+
+const fullname = ['jorge','luis', 'camarillo', 'cristobal']
+// ->'jlcc'
+
+
+// let getInitials = (arr) => {
+//     return arr.reduce( (acc, cv) => `${acc}${cv.slice(0,1)}`,'')
+// }
+
+let getInitials = (arr) => arr.reduce( (acc, cv) => `${acc}${cv.slice(0,1)}`,'')
+
+let initials = getInitials(fullname)
+console.log(initials)
+
+
+
+
+
+
