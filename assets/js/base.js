@@ -392,6 +392,36 @@ console.log(result) */
  * 
  */
 
+/*  const filterStrings = (arr) => {
+	return arr.filter((item) => typeof item === 'string')
+	.map( (item) => item.toUpperCase())
+	.filter( (item ) => item.slice(0,1) === 'H')
+}
+
+const filterStringsLarge = (arr) => {
+	let onlyStrings = []
+	onlyStrings = arr.filter( (item) => {
+		if(typeof item === 'string') {
+			return item
+		}
+	})
+
+	let toUpper = []
+	toUpper = onlyStrings.map( (item) => {
+		return item.toUpperCase()
+	})
+
+	let onlyH = []
+	onlyH = toUpper.filter( (item ) => { 
+		if(item.slice(0,1) === 'H') {
+			return item
+		}
+	})
+
+	return onlyH
+}
+ */
+
 const string_Filter = ['hola','mundo', 0, 5]
 
 /* let filtered = string_Filter.filter( arr => {
