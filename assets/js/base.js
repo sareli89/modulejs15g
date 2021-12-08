@@ -176,7 +176,7 @@ let koders =  [
 //  7. ----- regresar el total
 //  8. -- fin iteracion
 //  9. retornar el array 
-
+/* 
 let suma = 0
 koders.forEach((element, index) => {
     console.log(element)
@@ -196,7 +196,102 @@ const totalAge = (arr) => {
 console.log(totalAge(koders))
 
 const countAge = (arr) => arr.reduce( (acc,val) => acc + val.age,0)
-console.log(countAge(koders))
+console.log(countAge(koders)) */
+
+
     // for (obj in koders) {
     //     return totalEdades += element.age
     // }
+
+
+
+
+//  Metodos en los Objetos
+//  Object.keys
+
+let salarios = {
+    'jorge': 3000,
+    'juan': 3000,
+    'Pedro': 3000,
+    'Laura': 3000
+}
+
+/* let empleados = []
+for( item in salarios){
+    empleados.push(item)
+}
+
+console.log( Object.keys(salarios) )
+ */
+// funcion
+// recibe un objeto
+// retornar el total de los salarios
+
+// hint : reduce
+// hint : forEach
+
+/* const sumaSalarios = (obj) => {
+    let suma = 0
+    Object.keys(obj).forEach( (key) => {
+        let salario = obj[key]
+        suma += salario 
+    })
+    return suma
+}
+console.log(sumaSalarios(salarios))
+
+const sumaSalario2 = (obj) => {
+    let sumA = 0
+    sumA = Object.keys(obj).reduce( (acc, key) => {
+        return acc + obj[key]
+    }, 0)
+    return sumA
+}
+console.log(sumaSalario2(salarios))
+
+let total = Object.keys(salarios).reduce( (acc, key) => acc += salarios[key], 0)
+console.log(total) */
+
+//  Object.values
+
+const valueSalary = (obj) => {
+    let suma = 0
+    suma = Object.values(salarios).reduce( (acc, value) => acc + value, 0) 
+    return  suma
+}
+console.log(valueSalary(salarios))
+
+
+//  Object.asign() -> concat
+
+
+//  Object.entries()
+
+
+//  Object.freeze()
+
+// destructuracion de arrays
+let newArr = [10, 20, 30, 40, 50]
+
+let [primerValor, segundoValor, tercerValor, ...rest] = newArr
+console.log(primerValor, segundoValor, tercerValor)
+console.log(tercerValor)
+console.log(...rest)
+
+
+// destructuracion de objetos
+
+const hero = {
+    name: 'Batman',
+    realName: 'BruceWayne',
+    otherProp : {
+        prop: 'value',
+    }
+}
+
+const { name, realName} = hero
+const { name: firstName, realName: legalName, otherProp} = hero // asi se pueden renombrar las keys
+
+
+// spread operator ...
+
