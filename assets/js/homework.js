@@ -27,7 +27,7 @@ const userRole = (arr) => {
     }, {} )
 }
 
-console.log(userRole(users))
+// console.log(userRole(users))
 
 
 //  1. Declarar una funcion que reciba un objeto de koders (forEach)
@@ -63,7 +63,7 @@ console.log(userRole(users))
 
 const filterUserByRole = (arr, role) => arr.filter(user => user.role === role)
 
-console.log(filterUserByRole(users, 'Full Stack Resident'))
+// console.log(filterUserByRole(users, 'Full Stack Resident'))
 
 
 
@@ -97,18 +97,138 @@ let persons = [
 // filter((element) => { ... } )
 
 const countAge = (arr) => arr.reduce( (acc,val) => acc + val.age,0)/arr.length
-console.log(countAge(persons))
+// console.log(countAge(persons))
 
 const personVoted = (arrPersons) => {
     return arrPersons.reduce( (acc, person) => {
         return person.voted == true ? acc + 1 : acc
     }, 0) 
 }
-console.log(personVoted(persons))
+// console.log(personVoted(persons))
 
 const averageAgeVoters = (arr) => {
     return arr.reduce( (acc, person) => {
         return acc + person.age
     }, 0 ) / persons.length
 }
-console.log(averageAgeVoters(persons))
+// console.log(averageAgeVoters(persons))
+
+/**
+ * Ejercicio 1.
+ * Dado un objeto inicial, hacer los siguientes puntos 
+ * 
+ * 1. Agregar el lenguaje 'Go' a la lista de lenguajes
+ * 2. Cambiar el nivel a 4
+ * 3. Eliminar la propiedad avatar
+ * 4. Agregar una nueva propiedad de edad y poner el valor de 30
+ * 5. Imprimir en consola todos los lenguajes dominados
+ * 6. Clonar el objeto en uno nuevo
+ * 7. Imprimir en consola el nuevo objeto
+ * 
+ * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+ */
+
+ let koder = {
+    languages: ["JavaScript", "Python", "Ruby"],
+    isMentor: true,
+    level: 3,
+    avatar: "https://picsum.photos/200/300"
+}
+
+koder.languages.push('Go')
+koder.level = 4
+delete koder.avatar
+koder.age = 30
+
+console.log(koder)
+
+const cloneObj = (o) => {
+    let clone = {...o}
+    return clone
+}
+console.log(cloneObj(koder))
+
+/**
+ * Ejercicio 2:
+ * Escribir una funcion que reciba un parametro
+ * Verificar si el parametro es un objeto
+ * o si es un array
+ * p.ej.  
+ * ·> isAnObjectOrArray( [1,2,3] )
+ * -> 'Es un array'
+ * ·> isAnObjectOrArray( {key:'value'} )
+ * -> 'Es un Objeto'
+ * ·> isAnObjectOrArray( 'Hola mundo' )
+ * -> 'No es un array ni un objeto'
+ * 
+ * 
+ * @params {Object}, [Array] ,'string' - Estructura que se quiere validar
+ * @return 'String' - mensaje de respuesta
+ * 
+ * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+ * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
+ * 
+ */
+
+// const isAnObjectOrArray = (element) => {
+//     if (typeof element === Object){
+//         return 'Es un Objeto'
+//     } else if (typeof element === Array) {
+//         return 'Es un array'
+//     } else {
+//         return 'No es un array ni un objeto'
+//     } 
+// }
+
+// console.log(isAnObjectOrArray([1,2,3]))
+
+/**
+ * Ejercicio 3.
+ * Realizar una funcion que tome como parametro un objeto
+ * y devuelva un array de arrays con la siguiente estructura
+ * [ [key, value], [key, value] ]
+ * Resultado esperado: makePairs({ a: 1, b: 2 }) => [['a', 1], ['b', 2]]
+ * 
+ * @params {Object} object - El objeto que queremos transformar
+ * @return [Array] - El array que se espera retornar
+ * 
+ * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
+ * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+ * 
+ * Se tiene que realizar 2 soluciones, 1 con Object.entries() y otra con .map()
+ */
+
+let fromObject = { 
+    a: 1,
+    b: 2
+}
+
+const   makePairs = (object) => {
+    let toArray = Object.entries(object)
+    return toArray
+}
+
+console.log(makePairs(fromObject))
+
+
+
+/**
+ * Ejercicio 4:
+ * Realizar una funcion que tome como parametro un string
+ * y retorne un array con todos caracteres del string
+ * 
+ * Resultado esperado: 
+ * ·> splitString('hola mundo')
+ * ·> ['h','o','l','a',' ','m','u','n','d','o']
+ * 
+ * @params 'String' - El String que queremos transformar
+ * @return [Array] - El array que se espera retornar
+ * 
+ * 
+ * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+ */
+
+const splitString = (str) => [...str] 
+console.log(splitString(('hola mundo')))
+
+
