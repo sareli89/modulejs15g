@@ -1,124 +1,106 @@
-/**
- * Ejercicio 1.
- * Dado un objeto inicial, hacer los siguientes puntos 
- * 
- * 1. Agregar el lenguaje 'Go' a la lista de lenguajes
- * 2. Cambiar el nivel a 4
- * 3. Eliminar la propiedad avatar
- * 4. Agregar una nueva propiedad de edad y poner el valor de 30
- * 5. Imprimir en consola todos los lenguajes dominados
- * 6. Clonar el objeto en uno nuevo
- * 7. Imprimir en consola el nuevo objeto
- * 
- * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
- */
+let koder = {
+    name:"jorge",
+    lastName:"Camarillo",
+    average: [10, 10, 10, 8, 9],
+    age: 30,
 
- let koder = {
-    languages: ["JavaScript", "Python", "Ruby"],
-    isMentor: true,
-    level: 3,
-    avatar: "https://picsum.photos/200/300"
+    getAge: function () {
+        return this.age
+    },
+
+    get ageKoder() {
+        return this.age
+    },
+
+    set ageKoder(age) {
+        this.age = age
+    },
+
+    get fullName() {
+        return `${ this.name } ${ this.lastName }`
+    },
+
+    set fullName(objFullName) {
+        this.name = objFullName[0]
+        this.lastName = objFullName[1]
+    },
+
+    // set newScore (element) {
+    //     this.average.push(element)
+    // },
+
+    // get aver () {
+    //     let suma = this.average + 
+    //     return suma / this.average.length
+    // }
 }
 
-/* koder.languages.push('Go')
-koder.level = 4
-delete koder.avatar
-koder.age = 30
+// Metodos
+console.log( koder.getAge() )
 
-console.log(koder)
+// getters
+console.log('Edad inicial: ', koder.ageKoder)
+console.log('Nombre completo: ', koder.fullName)
 
-const cloneObj = (o) => {
-    
-    let clone = {...o}
-    return clone
-}
-console.log(cloneObj(koder))
+// setters
+koder.ageKoder = 47
+koder.fullName = ['jorge luis', 'camarillo']
 
-koder.hobbie = 'read'
-console.log(koder) */
-
-
-
+// getter y setter de 
 /**
- * Ejercicio 2:
- * Escribir una funcion que reciba un parametro
- * Verificar si el parametro es un objeto
- * o si es un array
- * p.ej.  
- * ·> isAnObjectOrArray( [1,2,3] )
- * -> 'Es un array'
- * ·> isAnObjectOrArray( {key:'value'} )
- * -> 'Es un Objeto'
- * ·> isAnObjectOrArray( 'Hola mundo' )
- * -> 'No es un array ni un objeto'
  * 
+ * 1. getter average
+ * 2. getter, setter IMC 
+ * 3. setter Score
  * 
- * @params {Object}, [Array] ,'string' - Estructura que se quiere validar
- * @return 'String' - mensaje de respuesta
+ * 4. setter newProperty
  * 
- * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
- * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/isArray
  * 
  */
 
-const isAnObjectOrArray = (element) => {
-    if (Array.isArray(element) === true)
-        return 'Es un Array'
-    else if (typeof (element) === Object) 
-        return 'Es un Objeto'
-    else 
-        return 'No es un array ni un objeto'
-    
-}
+// 1. get average 
+Object.defineProperty( koder, 'averagekoder', {
+    get() {
+        return this.average.reduce( (acc, cv) => acc + cv, 0) / this.average.length
+    }
+})
 
-console.log(isAnObjectOrArray({key:'value'}))
+// 2. getter, setter IMC
+Object.defineProperty( koder, 'IMCKoder', {
+    get() {
+        return this.weight / (this.height * this.height)
+    },
+    set(value) {
+        this.IMC = value
+    }
+})
 
-/**
- * Ejercicio 3.
- * Realizar una funcion que tome como parametro un objeto
- * y devuelva un array de arrays con la siguiente estructura
- * [ [key, value], [key, value] ]
- * Resultado esperado: makePairs({ a: 1, b: 2 }) => [['a', 1], ['b', 2]]
- * 
- * @params {Object} object - El objeto que queremos transformar
- * @return [Array] - El array que se espera retornar
- * 
- * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
- * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
- * 
- * Se tiene que realizar 2 soluciones, 1 con Object.entries() y otra con .map()
- */
-
-let fromObject = { 
-    a: 1,
-    b: 2
-}
-
-// const   makePairs = (object) => {
-//     let toArray = Object.entries(object)
-//     return toArray
+// 3. setter Score
+koder.weight = 90
+koder.height = 1.73
+Object.defineProperty(koder, 'score', {
+    set(score) {
+        this.average.push(score)
+    }
+})
+// koder.newScore = function (element) {
+//     this.average.push(element)
 // }
-// console.log(makePairs(fromObject))
 
-// const makePairs2 = (object) => Object.keys(object).map( (el) => [ele, object[el] ] )
-// console.log(makePairs2(fromObject))
+// 4. setter NewProperty
+Object.defineProperty( koder, 'newProperty', {
+    set(objProp) {
+        console.log(objProp)
+        // koder['nueva'] = "valor"
+        this[objProp.nameProperty] = objProp.valueProperty
+    }
+})
+
+koder.defineProperty = {
+    nameProperty: 'generation',
+    valueProperty: 'nuevo valor'
+}
 /**
- * Ejercicio 4:
- * Realizar una funcion que tome como parametro un string
- * y retorne un array con todos caracteres del string
- * 
- * Resultado esperado: 
- * ·> splitString('hola mundo')
- * ·> ['h','o','l','a',' ','m','u','n','d','o']
- * 
- * @params 'String' - El String que queremos transformar
- * @return [Array] - El array que se espera retornar
- * 
- * 
- * @hint https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+ * Estudiar DOM 
+ * CSS y HTML
  */
-
-const splitString = (str) => [...str] 
-// console.log(splitString(('hola mundo')))
-
-

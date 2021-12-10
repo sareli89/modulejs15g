@@ -1,13 +1,13 @@
 // Objetos
 
-let koder = {
-    name: 'Sara',
-    lastNames: 'Reveles',
-    age: 32,
-    hobbies: ['musica', 'peliculas', 'naturaleza'],
-    generation: 15,
-    isStudent: true
-} 
+// let koder = {
+//     name: 'Sara',
+//     lastNames: 'Reveles',
+//     age: 32,
+//     hobbies: ['musica', 'peliculas', 'naturaleza'],
+//     generation: 15,
+//     isStudent: true
+// } 
 /* 
 // Create
 koder.isMentor = false
@@ -259,7 +259,7 @@ const valueSalary = (obj) => {
     suma = Object.values(salarios).reduce( (acc, value) => acc + value, 0) 
     return  suma
 }
-console.log(valueSalary(salarios))
+// console.log(valueSalary(salarios))
 
 
 //  Object.asign() -> concat
@@ -274,9 +274,9 @@ console.log(valueSalary(salarios))
 let newArr = [10, 20, 30, 40, 50]
 
 let [primerValor, segundoValor, tercerValor, ...rest] = newArr
-console.log(primerValor, segundoValor, tercerValor)
-console.log(tercerValor)
-console.log(...rest)
+// console.log(primerValor, segundoValor, tercerValor)
+// console.log(tercerValor)
+// console.log(...rest)
 
 
 // destructuracion de objetos
@@ -298,8 +298,8 @@ const { name: firstName, realName: legalName, otherProp} = hero // asi se pueden
 const arr1 = ['one', ' two']
 const arr2 = ['three', ' four', 'five', ...arr1]
 const arr3 = [arr1, 'three', ' four', 'five']
-console.log(arr2)
-console.log(arr3)
+// console.log(arr2)
+// console.log(arr3)
 
 let objSpread1 = {
     popiedad: 'valor',
@@ -309,24 +309,20 @@ let objSpread2 = {
     valor2: 'valor2',
     ...objSpread1
 }
-console.log(objSpread2)
+// console.log(objSpread2)
 //spread(...) ordena de menor a mayor cuando la key es numero; si hay string y numero, van primero los numeros depues los string
 
 // clase 11 mentor Jorge
 
 // elemento.metodo(parametros)
 // Object.keys(obj)
-let salarios  = {
-    'jorge':  3000,
-    'juan':  7000,
-    'Pedro':  8000
-}
+// let salarios  = {
+//     'jorge':  3000,
+//     'juan':  7000,
+//     'Pedro':  8000
+// }
 
-
-
-
-
-let empleados = []
+// let empleados = []
 // for( item in salarios){
 //     empleados.push(item)
 // }
@@ -419,7 +415,7 @@ Object.assign(obj1,obj2)
 // }
 
 
-console.log( Object.entries(obj1) )
+// console.log( Object.entries(obj1) )
 // console.log(obj1)
 // [
 //     ['key', 'value'],
@@ -442,7 +438,8 @@ delete obj1.generation
 
 
 // destructuracion de arrays
-let newArr = [10, 20, 30, 40, 50]
+
+// let newArr = [10, 20, 30, 40, 50]
 // let a = newArr[0]
 // let b = newArr[1]
 // let c = newArr[2]
@@ -456,12 +453,12 @@ let newArr = [10, 20, 30, 40, 50]
 // console.log(a)
 // console.log(b)
 
-let [a, b, ...rest] = [10, 20, 30, 40, 50]
+// let [a, b, ...rest] = [10, 20, 30, 40, 50]
 // console.log(a)
 // console.log(b)
 // console.log(...rest)
 
-let [firstName, lastName, age] = ['Jorge', 'camarillo', 30]
+// let [firstName, lastName, age] = ['Jorge', 'camarillo', 30]
 // console.log(firstName)
 // console.log(lastName)
 // console.log(age)
@@ -478,24 +475,24 @@ let destrucArr = [
 
 destrucArr.forEach((value, index, array) => {
     let [ nombre, apellido ] = value
-    console.log(`${nombre} ${apellido}`)
+    // console.log(`${nombre} ${apellido}`)
 })
 
 
 // destructuracion de objetos
-const hero = {
+/* const hero = {
     name: 'Batman',
     realName: 'Bruce Wayne',
     otherProp: {
         prop: 'value',
     }
-}
+} 
 const { name, realName } = hero
 const { name: firstNameObj, realName: legalName, otherProp } = hero
 
 console.log(name, realName)
 console.log(firstNameObj, legalName, otherProp)
-
+*/
 
 let users = [
     { firstName: 'Bradley', lastName: 'Bouley', role: 'Full Stack Resident' },
@@ -515,12 +512,9 @@ users.forEach((value, index, array) => {
         role
     } = value
 
-    console.log(firstName, lastName, role)
+    // console.log(firstName, lastName, role)
     // console.log(value.firstName, value.lastName, value.role)
 })
-
-
-
 
 
 // const { nameHero,  realName: secretName } = hero
@@ -528,9 +522,9 @@ users.forEach((value, index, array) => {
 
 // spread operator
 
-const arr1 = ['one', 'two']
-const arr2 = [...arr1, 'three','four', 'five']
-console.log(arr2)
+// const arr1 = ['one', 'two']
+// const arr2 = [...arr1, 'three','four', 'five']
+// console.log(arr2)
 
 
 let objspread1 = {
@@ -542,10 +536,111 @@ let objspread2 = {
     ...objspread1
 }
 
-console.log(objspread2)
+// console.log(objspread2)
 
 
 
 
 // 2 ejercicios
 // rest operator
+
+
+// Clase 12: metodos de array THIS
+
+// console.log(this)
+// console.log(this.alert)
+
+let koder = {
+    name:"jorge",
+    lastName:"Camarillo",
+    age: 30,
+    weight: 60,
+    height: 1.70,
+    average: [10, 10, 10, 8, 9],
+    // getFullName: function () {
+    //     console.log(this)
+    //     return `${ this.name } ${ this.lastName } ${this.age}`
+    // }
+    // getAverage: function() {
+    //     let sum = this.average.reduce( (acc, cv) => acc+= cv, 0)
+    //     let total = this.average.length
+    //     let av = sum / total
+    //     return av
+    // },
+    setAverage: function (average) {
+        this.average = average
+    },
+    
+}
+
+// koder.getFullName = function () {
+//     console.log(this)
+//     return `${ this.name } ${ this.lastName } ${this.age}`
+// }
+
+// console.log(koder.getFullName())
+
+koder.getAverage = function () {
+    let sumaTotal = 0
+    this.average.forEach( (element) => {
+        sumaTotal += element
+   })
+   return sumaTotal/this.average.length
+}
+
+koder.setAverage = function () {
+    this.totalAverage = this.getAverage()
+}
+koder.setAverage()
+
+console.log(koder.getAverage(koder))
+// -> 9.4
+
+// Agregar un metodo para calcular el IMC
+
+koder.setGetIMC = function () {
+    
+    this.indiceMC = weight / (height * height)
+   
+}
+
+// Agregar un metodo para Agregar un nuevo promedio
+koder.setNewAve = function (element) {
+    this.average.push(element)
+}
+koder.setNewAve(8) 
+
+// Agregar un metodo para agregar una nueva propiedad 
+koder.addNewProperty = function (key, value) {
+   
+}
+
+let koder = {
+    name:"jorge",
+    lastName:"Camarillo",
+    average: [10, 10, 10, 8, 9],
+    age: 30,
+
+    getAge: function () {
+        return this.age
+    },
+
+    get ageKoder() {
+        return this.age
+    },
+
+    set ageKoder(age) {
+        this.age = age
+    },
+
+    get fullName() {
+        return `${ this.name } ${ this.lastName }`
+    },
+
+    set fullName(objFullName) {
+        this.name = objFullName[0]
+        this.lastName = objFullName[1]
+    },
+
+
+}
