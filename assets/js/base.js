@@ -72,7 +72,7 @@ if( elemenTitle.hasAttribute('class') ) {
 // textContent
 // appendChild
 
-let ulElement = document.documentElement('ul')
+/* let ulElement = document.documentElement('ul')
 // se agrega <ul></ul>
 let liElement = document.createElement('li')
 // se agrega <li></li>
@@ -87,9 +87,64 @@ liSecond.textContent = 'item 2'
 // <li>item 2</li>
 ulElement.appendChild(liSecond)
 // <ul> <li>item 1</li> <li>item 2</li> </ul>
-
 document.getElementsByTagName('body')[0].appendChild(ulElement)
-// body -> <ul> <li>item 1</li> <li>item 2</li> </ul>
+// body -> <ul> <li>item 1</li> <li>item 2</li> </ul> */
+
+
+/**
+ * Ejercicio en clase 1
+ * <ul id="menu" class="menu">
+        <li class="item__menu">Home</li>
+        <li class="item__menu">Products</li>
+        <li class="item__menu">About Us</li>
+    </ul>
+    Replicar con JS este markup
+ */
+/* let ul_Element = document.documentElement('ul')
+let li_Home = document.createElement('li')
+let li_Products = document.createElement('li')
+let li_AboutUs = document.createElement('li')
+
+ul_Element.setAtribute('id', 'menu')
+ul_Element.setAtribute('class', 'menu')
+
+li_Home.textContent = 'Home'
+li_Home.setAttribute('item__menu')
+li_Products.textContent = 'Products'
+li_ProductssetAttribute('item__menu')
+li_AboutUs.textContent = 'About Us'
+li_AboutUssetAttribute('item__menu')
+
+ul_Element.appendChild(li_Home)
+ul_Element.appendChild(li_Products)
+ul_Element.appendChild(li_AboutUs)
+
+document.getElementsByTagName('body')[0].appendChild(ul_Element) */
+// document.getElementsById('body').appendChild(ul_Element)
+
+// Solucion mentor Jorge
+let ulMenu = document.createElement('ul')
+ulMenu.classList.add('menu')
+ulMenu.setAttribute('id','menu')
+
+let liMenuHome = document.createElement('li')
+liMenuHome.classList.add('item__menu')
+liMenuHome.textContent = 'Home'
+ulMenu.appendChild(liMenuHome)
+
+let liMenuProducts = document.createElement('li')
+liMenuProducts.classList.add('item__menu')
+liMenuProducts.textContent = 'Products'
+ulMenu.appendChild(liMenuProducts)
+
+let liMenuAboutUs = document.createElement('li')
+liMenuAboutUs.classList.add('item__menu')
+liMenuAboutUs.textContent = 'About Us'
+ulMenu.appendChild(liMenuAboutUs)
+
+document.getElementById('body').appendChild(ulMenu) 
+
+
 /**
  *  Seleccionar padres e hijos (traversing)
  * 

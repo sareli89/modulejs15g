@@ -1,106 +1,94 @@
-let koder = {
-    name:"jorge",
-    lastName:"Camarillo",
-    average: [10, 10, 10, 8, 9],
-    age: 30,
+// Tarea 1
 
-    getAge: function () {
-        return this.age
-    },
-
-    get ageKoder() {
-        return this.age
-    },
-
-    set ageKoder(age) {
-        this.age = age
-    },
-
-    get fullName() {
-        return `${ this.name } ${ this.lastName }`
-    },
-
-    set fullName(objFullName) {
-        this.name = objFullName[0]
-        this.lastName = objFullName[1]
-    },
-
-    // set newScore (element) {
-    //     this.average.push(element)
-    // },
-
-    // get aver () {
-    //     let suma = this.average + 
-    //     return suma / this.average.length
-    // }
-}
-
-// Metodos
-console.log( koder.getAge() )
-
-// getters
-console.log('Edad inicial: ', koder.ageKoder)
-console.log('Nombre completo: ', koder.fullName)
-
-// setters
-koder.ageKoder = 47
-koder.fullName = ['jorge luis', 'camarillo']
-
-// getter y setter de 
 /**
- * 
- * 1. getter average
- * 2. getter, setter IMC 
- * 3. setter Score
- * 
- * 4. setter newProperty
- * 
+ * Ejercicio 1.
+ * Dado el siguiente Array ['Hoteles', 'Ofertas', 'Viajes', 'Ayuda', 'Cancelaciones']
+ * Formar el siguiente markup en el DOM
+ * <ul class="menu__booking" data-menu="booking">
+        <li class="menu__booking__item">Hoteles</li>
+        <li class="menu__booking__item">Ofertas</li>
+        <li class="menu__booking__item">Viajes</li>
+        <li class="menu__booking__item">Ayuda</li>
+        <li class="menu__booking__item">Cancelaciones</li>
+    </ul>
  * 
  */
 
-// 1. get average 
-Object.defineProperty( koder, 'averagekoder', {
-    get() {
-        return this.average.reduce( (acc, cv) => acc + cv, 0) / this.average.length
-    }
-})
+    let menuContainer = document.createElement('ul')
+    menuContainer.classList.add('menu__booking')
+    menuContainer.setAttribute('id', 'menu__booking')
 
-// 2. getter, setter IMC
-Object.defineProperty( koder, 'IMCKoder', {
-    get() {
-        return this.weight / (this.height * this.height)
-    },
-    set(value) {
-        this.IMC = value
-    }
-})
+    let arrMenu = ['Hoteles' , 'Ofertas', 'Viajes','Ayuda', 'Cancelaciones']
 
-// 3. setter Score
-koder.weight = 90
-koder.height = 1.73
-Object.defineProperty(koder, 'score', {
-    set(score) {
-        this.average.push(score)
-    }
-})
-// koder.newScore = function (element) {
-//     this.average.push(element)
-// }
+    arrMenu.forEach( (menu) => {
+        let liMenu = document.createElement('li')
+        liMenu.classList.add('menu__booking__item')
+        liMenu.textContent = menu
+        menuContainer.appendChild(liMenu)
+    })
 
-// 4. setter NewProperty
-Object.defineProperty( koder, 'newProperty', {
-    set(objProp) {
-        console.log(objProp)
-        // koder['nueva'] = "valor"
-        this[objProp.nameProperty] = objProp.valueProperty
-    }
-})
+    document.getElementsByTagName('body')[0].appendChild(menuContainer)
 
-koder.defineProperty = {
-    nameProperty: 'generation',
-    valueProperty: 'nuevo valor'
-}
+
+
+
 /**
- * Estudiar DOM 
- * CSS y HTML
+ * Ejercicio 2.
+ * Dado el siguiente Array de objetos "objPromesas"
+ * Crear una funcion para Formar el markup necesario para que se vea asi
+ * https://ibb.co/hWSvpx5
+ * 
+ * NOTA: recuerda agregas el CSS necesario para lograr este objetivo
+ * 
+ */
+
+ let objPromesas = [
+    {
+        imagen: 'https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/2021-07/hotel1.png',
+        titulo: 'LA MAYOR COBERTURA',
+    },
+    {
+        imagen: 'https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/2021-07/icono_desayuno_cortesia_2_0.png',
+        titulo: 'DESAYUNO EN CORTESÍA*',
+    },
+    {
+        imagen: 'https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/2021-07/icono_cancelacion_flexible_0.png',
+        titulo: 'CANCELACIÓN SIN COSTO**',
+    },
+    {
+        imagen: 'https://imagenescityexpress.scdn6.secure.raxcdn.com/sites/default/files/2021-07/icono_wifi_cortesia_2_0.png',
+        titulo: 'WIFI EN CORTESÍA',
+    }
+]
+
+let container = document.createElement('section')
+container.classList.add('grid__servies')
+
+objPromesas.forEach( (service) => {
+    let divService = document.createElement('div')
+    divService.classList.add('grid__services__item')
+    
+    let imgService = document.createElement('img')
+    imgService.setAttribute('src',service.imagen)
+    let titleService = document.createElement('h3')
+    titleService.textContent = service.titulo
+
+    divService.appendChild(imgService)
+    divService.appendChild(titleService)
+    divService.appendChild(divService)
+
+})
+
+    document.getElementsByTagName('body')[0].appendChild(container)
+/**
+ *  Tarea 2
+ * Estudiar lo siguiente:
+ * 1. innerHTML
+ * 2. insertBefore()
+ * 3. insertAfter()
+ * 4. append()
+ * 5. prepend()
+ * 6. removeChild()
+ * 7. DOM events
+ * 
  */
