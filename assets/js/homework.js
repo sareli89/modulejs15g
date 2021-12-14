@@ -92,3 +92,11 @@ objPromesas.forEach( (service) => {
  * 7. DOM events
  * 
  */
+
+
+function reverseUser() {
+    let originalName = document.querySelector('#username').value
+    let reversedName = originalName.split('').reverse().join('')
+    document.getElementById('usernamereversed').value = reversedName
+    console.log(reversedName)
+}
