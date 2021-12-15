@@ -31,58 +31,57 @@
  
  
  
- let koders = [
-     {
-         name: 'Emilio',
-         age: 30,
-         city: 'Guadalajara'
-     },
-     {
-         name: 'Brisset',
-         age: 30,
-         city: 'Lima'
-     },
-     {
-        name: 'Sara',
-        age: 30,
-        city: 'Kitchener'
-    }
- ]
+//  let koders = [
+//      {
+//          name: 'Emilio',
+//          age: 30,
+//          city: 'Guadalajara'
+//      },
+//      {
+//          name: 'Brisset',
+//          age: 30,
+//          city: 'Lima'
+//      },
+//      {
+//         name: 'Sara',
+//         age: 30,
+//         city: 'Kitchener'
+//     }
+//  ]
  
- const filterCity = () => {
-    // filtrar ciudades
-    let koderSearch = document.querySelector('#name__koder').value
-    let koderFiltered = koders.filter( (koder) =>  {
-        if(koder.name.toLowerCase().includes(koderSearch)){
-            return koder
-        }
+//  const filterCity = () => {
+//     // filtrar ciudades
+//     let koderSearch = document.querySelector('#name__koder').value
+//     let koderFiltered = koders.filter( (koder) =>  {
+//         if(koder.name.toLowerCase().includes(koderSearch)){
+//             return koder
+//         }
 
-        let KoderTerm = typeof koder[KoderTerm] !== 'number' ? koder[KoderTerm].toLowerCase() : koder[KoderTerm]
+//         let KoderTerm = typeof koder[KoderTerm] !== 'number' ? koder[KoderTerm].toLowerCase() : koder[KoderTerm]
 
-        if (KoderTerm ==='age') {
-            if(KoderTerm.toString().includes(koderSearch) === true){
-                return koder
-            }
-        } else {
-            if(KoderTerm.includes(koderSearch) === true) {
-                return koder
-            }
-        }
-    })
+//         if (KoderTerm ==='age') {
+//             if(KoderTerm.toString().includes(koderSearch) === true){
+//                 return koder
+//             }
+//         } else {
+//             if(KoderTerm.includes(koderSearch) === true) {
+//                 return koder
+//             }
+//         }
+//     })
 
-    koder
 
     // creo el layout con las ciudades filtradas
-    let lista = ''
-    koderFiltered.forEach( (value) => {
-        lista += `<li><strong>${value.name}</strong>
-        <span>${value.age} 'años'</span>
-        <span>${value.city}</span></li>`
-    })
+//     let lista = ''
+//     koderFiltered.forEach( (value) => {
+//         lista += `<li><strong>${value.name}</strong>
+//         <span>${value.age} 'años'</span>
+//         <span>${value.city}</span></li>`
+//     })
 
-    // agrego el layout
-    document.querySelector('#listKoders').innerHTML = lista
-}
+//     // agrego el layout
+//     document.querySelector('#listKoders').innerHTML = lista
+// }
 
 let koders = [
     {
@@ -92,13 +91,18 @@ let koders = [
     },
     {
         name: 'emilio',
-        age: 30,
+        age: 28,
         city: 'guanajuato'
     },
     {
         name: 'Brisset',
         age: 37,
         city: 'Lima'
+    },
+    {
+        name: 'Sara',
+        age: 32,
+        city: 'Kitchener'
     }
 ]
 
@@ -114,9 +118,9 @@ const filterKoders = () => {
     let kodersFiltered = koders.filter( (koder) => {
         console.log(koder)
 
-        // if( koder.name.toLowerCase().includes(KoderSearch) ){
-        //     return koder  
-        // }
+        if( koder.name.toLowerCase().includes(KoderSearch) ){
+            return koder
+        }
 
         
         let koderTerm = typeof koder[KoderTerm] !== 'number' ? koder[KoderTerm].toLowerCase() : koder[KoderTerm]
@@ -124,7 +128,7 @@ const filterKoders = () => {
 
         if(KoderTerm === 'age') {
             if((koderTerm).toString().includes(KoderSearch) === true){
-                return koder
+                return koder.sort((a,b) => a.age - b.age)
             }
         } else  {
             if(koderTerm.includes(KoderSearch) === true){
@@ -161,3 +165,14 @@ const filterKoder = () => {
 const changeFilter = () => {
     filterKoders()
 }
+
+// const sorted = () => {
+//     let sortAge = koders.sort(function(a,b) => {
+//         if (a.name.toLowerCase() > bname.toLowerCase()) return 1
+//         if (a < b) return -1
+//         return 0
+//     })
+    
+// } 
+// console.log(sorted(koders))
+

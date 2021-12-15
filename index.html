@@ -39,6 +39,10 @@
     </ul> -->
 
     <form action="" class="form__filter">
+        <select name="" id="orderFilter" onchange="filterKoders()">
+            <option value="desc">Descendente</option>
+            <option value="asc">Ascendente</option>
+        </select>
         <select name="" id="filterby" onchange="changeFilter()">
             <option value="name">Nombre</option>
             <option value="age">Edad</option>
@@ -51,11 +55,13 @@
             
         </ul>
     </form>
+
+    <button id="button_eventListener">Evenet listener click</button>
     
 
-    
 
-    <script src="/assets/js/filterArr.js"></script>
+
+    <script src="/assets/js/eventlistener.js"></script>
     <!-- <script src="/assets/js/is_largest.js"></script> -->
 
 </body>
