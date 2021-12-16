@@ -90,7 +90,7 @@ const fillKoder = () => {
     koders.forEach( (koder) => {
         cardsFill +=
         <div class='col-3'>
-            <div class='card' style="width: 18rem;">
+            <div class='card bg-light mb-3' style="width: 18rem;">
                 <img src="${koder.avatar}" class="card-img-top rounded-circle" alt="${koder.name}"></img>
                 <div class="card-body">
                     <h5 class="nameKoder text-center"><b>Nombre:</b> ${koder.name}</h5>
