@@ -57,17 +57,49 @@ xhttp.send() */
 
 
 // ejercico 1 en clase
-const xhttp = new XMLHttpRequest()
-xhttp.open( "GET" , "https://jsonplaceholder.typicode.com/posts", true)
+// const xhttp = new XMLHttpRequest()
+// xhttp.open( "GET" , "https://jsonplaceholder.typicode.com/posts", true)
 
-xhttp.onload = function(data) {
+// xhttp.onload = function(data) {
+// console.log(data.target.response)
+//     if(data.target.status === 200){
+//         let res = data.target.response
+//         let objResp = JSON.parse(res)
+
+//         let templateUser = ''
+//         objResp.forEach(element => {
+//             templateUser += `
+            
+//             <div class="col-12 col-md-4 mb-5" style="width: 18rem">
+//             <div class="card bg-light " >
+//                 <div id="userCard" class="card-body m-2 rounded ">
+//                     <h5 class="card-title mb-3 "><b>Titulo:</b> ${element.title}</h5>
+//                     <h6 class="card-subtitle mb-2 text-muted"><b>ID:</b> ${element.id}</h6>
+//                     <p class="card-text">${element.body}</p>
+//                 </div>
+//             </div>
+//             </div>
+//             `
+//             });
+//         document.querySelector('#cardRow').innerHTML = templateUser
+//     }   
+// }
+
+// xhttp.send()
+
+
+// Ejercico 2 en clase 
+const getData = new XMLHttpRequest()
+getData.open( "GET" , "https://jsonplaceholder.typicode.com/posts/1", true)
+
+getData.onload = function(data) {
 console.log(data.target.response)
     if(data.target.status === 200){
         let res = data.target.response
-        let objResp = JSON.parse(res)
+        let dataResp = JSON.parse(res)
 
         let templateUser = ''
-        objResp.forEach(element => {
+        dataResp.forEach(element => {
             templateUser += `
             
             <div class="col-12 col-md-4 mb-5" style="width: 18rem">
@@ -77,6 +109,7 @@ console.log(data.target.response)
                     <h5 class="card-title mb-3 "><b>Titulo:</b> ${element.title}</h5>
                     <h6 class="card-subtitle mb-2 text-muted"><b>ID:</b> ${element.id}</h6>
                     <p class="card-text">${element.body}</p>
+                    <h2>Comentarios</h2>
                     <div class="card" > 
                         <ul id="comentarios" class="list-group list-group-flush">
                             
@@ -93,7 +126,7 @@ console.log(data.target.response)
     
 }
 
-xhttp.send()
+getData.send()
 
 const xhttp2 = new XMLHttpRequest()
 xhttp2.open( "GET" , "https://jsonplaceholder.typicode.com/posts/1/comments", true)
@@ -106,13 +139,9 @@ xhttp2.onload = function(data) {
         let comentUser = ''
         objResp2.forEach(element => {
             comentUser += `
-                
-            <div class="card" > 
-                <ul class="list-group list-group-flush">
-                <li class="list-group-item">${element.name}</li>
-                <li class="list-group-item">${element.body}</li>
-                </ul>
-            </div>
+                <li class="list-group-item">
+                <strong>${element.name}</strong>
+                <span class="comment__body">${element.body}</span>
             `
             });
         document.querySelector('#comentarios').innerHTML = templateUser2
