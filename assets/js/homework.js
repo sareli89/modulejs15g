@@ -76,6 +76,7 @@ console.log(data.target.response)
             <div class="col-12 col-md-4 mb-5" style="width: 18rem">
             <div class="card bg-light " >
                 <div id="userCard" class="card-body m-2 rounded ">
+                    <img src="https://i.pravatar.cc/150?img=3" class="card-img-top rounded-circle mb-2" alt="avatar picture">
                     <h5 class="card-title mb-3 "><b>Nombre:</b> ${element.name}</h5>
                     <h6 class="card-subtitle mb-2 text-muted"><b>Nombre de usuario:</b> ${element.username}</h6>
                     <p class="card-text">${element.email}</p>
@@ -83,7 +84,7 @@ console.log(data.target.response)
                             <ul class="list-group list-group-flush ">
                                 <li class="list-group-item">
                                     <strong><b>Direccion:</b> ${element['address'].street}</strong>
-                                    <span class="comment__body"><b>Direccion:</b> ${element['address'].suite}</span>  
+                                    <span class="comment__body"> ${element['address'].suite}</span>  
                                 </li>
                             </ul>
                         </div>

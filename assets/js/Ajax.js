@@ -88,7 +88,7 @@ xhttp.send() */
 // xhttp.send()
 
 
-// Ejercico 2 en clase 
+/* // Ejercico 2 en clase 
 const getData = new XMLHttpRequest()
 getData.open( "GET" , "https://jsonplaceholder.typicode.com/posts/1", true)
 
@@ -150,7 +150,7 @@ xhttp2.onload = function(data) {
 }
 
 xhttp2.send()
-
+ */
 /* 
 // https://jsonplaceholder.typicode.com/posts/1 {} 
 // https://jsonplaceholder.typicode.com/posts/1/comments [{},{}]
@@ -179,3 +179,81 @@ xhttp2.send()
     <li class="list-group-item">A third item</li>
   </ul>
 </div> */}
+
+
+// GET
+// VERbost http (POST, PUT, PATCH,  GET,DELETE)
+
+// POST
+// const xhttp = new XMLHttpRequest()
+// xhttp.open( "POST" , "https://genjs-292ac-default-rtdb.firebaseio.com/posts/.json", true)
+// xhttp.onload = function(data) {
+//     if(data.target.status === 200){
+//         console.log(data)
+//     }
+// }
+
+// let objNewPost =  {
+//     author: 'Sara R',
+//     title: 'foo',
+//     body: 'bar lorem',
+// }
+
+// xhttp.send( JSON.stringify(objNewPost) )
+
+
+/* 
+// POST agrega datos
+const updateUser =  (objNewPost) => { // se creo una funcion comparado al de arriba
+    const xhttp = new XMLHttpRequest()
+    xhttp.open( "POST" , `https://genjs-292ac-default-rtdb.firebaseio.com/posts/.json`, true)
+    xhttp.onload = function(data) {
+        if(data.target.status === 200){
+            console.log(data)
+        }
+    }
+    xhttp.send( JSON.stringify(objNewPost) )
+}
+
+// let objNewPost =  {
+//     author: 'Sara R',
+//     title: 'foo',
+//     body: 'bar lorem',
+// }
+createUser(objNewPost)
+*/
+
+
+/* // PATCH actualizar datos
+const updateUser =  (objUpdate, idUser) => {
+    const xhttp = new XMLHttpRequest()
+    xhttp.open( "PATCH" , `https://genjs-292ac-default-rtdb.firebaseio.com/posts/${idUser}.json`, true)
+    xhttp.onload = function(data) {
+        if(data.target.status === 200){
+            console.log(data)
+        }
+    }
+    xhttp.send( JSON.stringify(objUpdate) )
+}
+
+let objUpdatePost =  {
+    author: 'Sara Elizabeth Reveles Caldera',
+    title: 'foo',
+    body: 'bar lorem',
+}
+
+updateUser(objUpdatePost, '--Mr55i0khmIQ8rrsdHGm') */
+
+// DELETE Eliminar datos
+const deleteUser =  (idUser) => {
+    const xhttp = new XMLHttpRequest()
+    xhttp.open( "DELETE" , `https://genjs-292ac-default-rtdb.firebaseio.com/posts/${idUser}.json`, true)
+    xhttp.onload = function(data) {
+        if(data.target.status === 200){
+            console.log(data)
+        }
+    }
+    xhttp.send()
+}
+// deleteUser('--Mr55i0khmIQ8rrsdHGm')
+
