@@ -1,7 +1,7 @@
 // POST crear datos
 const createUser =  (objPost) => {
     const xhttp = new XMLHttpRequest()
-    xhttp.open( "POST" , "https://genjs-292ac-default-rtdb.firebaseio.com/posts/.json", true)
+    // xhttp.open( "POST" , "https://genjs-292ac-default-rtdb.firebaseio.com/posts/.json", true)
     xhttp.onload = function(data) {
         if(data.target.status === 200){
             document.querySelector('#title').value = ''
